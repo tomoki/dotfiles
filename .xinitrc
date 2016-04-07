@@ -59,5 +59,6 @@ uim-toolbar-gtk-systray &
 if [ `hostname` = "multi" ]; then
     exec i3 -c ".i3/multi.config"
 else
+    exec i3 -c ".i3/default.config"
     echo "You need to add hostname to .xinitrc"
 fi
