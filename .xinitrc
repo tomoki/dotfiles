@@ -56,12 +56,8 @@ uim-xim &
 export XMODIFIERS='@im=uim'
 uim-toolbar-gtk-systray &
 
-# export GTK_IM_MODULE=fcitx
-# export QT_IM_MODULE=fcitx
-# export XMODIFIERS=@im=fcitx
-# fcitx
-
-
-# exec sway
-exec i3
-# exec awesome
+if [ `hostname` = "multi" ]; then
+    exec i3 -c ".i3/multi.config"
+else
+    echo "You need to add hostname to .xinitrc"
+fi
