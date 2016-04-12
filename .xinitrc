@@ -56,9 +56,10 @@ uim-xim &
 export XMODIFIERS='@im=uim'
 uim-toolbar-gtk-systray &
 
-if [ `hostname` = "multi" ]; then
-    exec i3 -c ".i3/multi.config"
+i3config=.i3/`hostname`.config
+if [ -e $i3config ]; then
+    exec i3 -c "$i3config"
 else
-    exec i3 -c ".i3/default.config"
     echo "You need to add hostname to .xinitrc"
+    exec i3 -c ".i3/default.config"
 fi
