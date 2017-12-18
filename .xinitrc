@@ -61,5 +61,5 @@ if [ -e $i3config ]; then
     exec i3 -c "$i3config"
 else
     echo "You need to add hostname to .xinitrc"
-    exec i3 -c ".i3/default.config"
+    exec i3 -c ".i3/default/config"
 fi
