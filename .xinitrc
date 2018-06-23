@@ -50,11 +50,17 @@ fi
 
 [ -f ~/.xprofile ] && source ~/.xprofile
 
-export GTK_IM_MODULE='uim'
-export QT_IM_MODULE='uim'
-uim-xim &
-export XMODIFIERS='@im=uim'
-uim-toolbar-gtk-systray &
+# export XMODIFIERS='@im=uim'
+# export GTK_IM_MODULE='uim'
+# export QT_IM_MODULE='uim'
+# uim-xim &
+# uim-toolbar-gtk-systray &
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -drx
+
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 i3config=.i3/`hostname`/config
 if [ -e $i3config ]; then
